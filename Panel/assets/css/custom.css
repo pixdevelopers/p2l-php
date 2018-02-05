@@ -1,0 +1,10 @@
+.chat-sidebar{
+position: fixed;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+}
+.chat-list, .chat-stacked {
+    max-height: calc(100vh - 250px) !important;
+    }

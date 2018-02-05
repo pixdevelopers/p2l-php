@@ -1,0 +1,76 @@
+CREATE TABLE `admin` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `Username` CHAR(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `Password` CHAR(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `Name` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `IsSupervisor` BOOLEAN NOT NULL , `GroupID` INT UNSIGNED NULL , `Status` BOOLEAN NOT NULL , PRIMARY KEY (`ID`), INDEX `GroupID` (`GroupID`), UNIQUE `Username` (`Username`)) ENGINE = InnoDB;
+
+CREATE TABLE `logins` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `UserID` INT UNSIGNED NULL , `AdminID` INT UNSIGNED NULL , `IP` CHAR(15) NOT NULL , `Result` BOOLEAN NOT NULL , `Time` INT(11) NOT NULL , PRIMARY KEY (`ID`), INDEX `UserID` (`UserID`), INDEX `AdminID` (`AdminID`), INDEX `Time` (`Time`)) ENGINE = InnoDB;
+
+ALTER TABLE `logins` ADD `Username` CHAR(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `ID`;
+
+ALTER TABLE `logins` ADD `Reason` TEXT NOT NULL AFTER `Result`;
+
+CREATE TABLE `usergroups_hdr` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `Name` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+CREATE TABLE `usergroups_dtl` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `HdrID` INT UNSIGNED NOT NULL , `Privilege` CHAR(40) NOT NULL , PRIMARY KEY (`ID`), INDEX `HdrID` (`HdrID`), INDEX `Privilege` (`Privilege`)) ENGINE = InnoDB;
+
+CREATE TABLE `privileges` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `Name` CHAR(40) NOT NULL , `En` TEXT NOT NULL , `PartID` INT UNSIGNED NOT NULL , `ItemID` INT UNSIGNED NOT NULL , PRIMARY KEY (`ID`), INDEX `Name` (`Name`)) ENGINE = InnoDB;
+
+ALTER TABLE `usergroups_dtl` ADD CONSTRAINT `HdrID_usergroups_dtl_FKC` FOREIGN KEY (`HdrID`) REFERENCES `usergroups_hdr`(`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `usergroups_dtl` ADD CONSTRAINT `Privilege_usergroups_dtl_FKC` FOREIGN KEY (`Privilege`) REFERENCES `privileges`(`Name`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE `usergroups_hdr` ADD `Status` BOOLEAN NOT NULL AFTER `Name`;
+
+ALTER TABLE `admin` ADD CONSTRAINT `GroupID_admin_FKC` FOREIGN KEY (`GroupID`) REFERENCES `usergroups_hdr`(`ID`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE `logins` ADD CONSTRAINT `AdminID_logins_FKC` FOREIGN KEY (`AdminID`) REFERENCES `admin`(`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE `features` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `Name` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `Desc` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `Price` TEXT NOT NULL , `Status` BOOLEAN NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+INSERT INTO `admin` (`ID`, `Username`, `Password`, `Name`, `IsSupervisor`, `GroupID`, `Status`) VALUES (NULL, 'Admin', MD5('123456'), 'Admin', '1', NULL, '1');
+
+INSERT INTO `privileges` (`ID`, `Name`, `En`, `PartID`, `ItemID`) VALUES (NULL, 'UserGroups_Manage', 'Manage UserGroups', '1', '1');
+
+INSERT INTO `privileges` (`ID`, `Name`, `En`, `PartID`, `ItemID`) VALUES (NULL, 'Admin_Manage', 'Manage admins', '2', '2'), (NULL, 'Features_Manage', 'Manage features', '3', '3');
+
+CREATE TABLE `package_hdr` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `Name` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `Price` TEXT NOT NULL , `IsSpecial` BOOLEAN NOT NULL , `Status` BOOLEAN NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+CREATE TABLE `package_dtl` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `HdrID` INT UNSIGNED NOT NULL , `FeatureID` INT UNSIGNED NOT NULL , PRIMARY KEY (`ID`), INDEX `HdrID` (`HdrID`), INDEX `FeatureID` (`FeatureID`)) ENGINE = InnoDB;
+
+INSERT INTO `privileges` (`ID`, `Name`, `En`, `PartID`, `ItemID`) VALUES (NULL, 'Package_Manage', 'Manage packages', '4', '4');
+
+CREATE TABLE `feature_category` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `Name` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `Desc` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `Status` BOOLEAN NOT NULL , PRIMARY KEY (`ID`), INDEX `Status` (`Status`)) ENGINE = InnoDB;
+
+ALTER TABLE `features` ADD `CategoryID` INT UNSIGNED NOT NULL AFTER `Price`, ADD INDEX `CategoryID` (`CategoryID`);
+
+ALTER TABLE `admin` CHANGE `IsSupervisor` `IsSuperadmin` TINYINT(1) NOT NULL;
+
+CREATE TABLE `user` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `Email` CHAR(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `Password` CHAR(32) NULL , `Name` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `Family` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , `PIN` INT NOT NULL , `Status` TINYINT NOT NULL , PRIMARY KEY (`ID`), UNIQUE `Email` (`Email`)) ENGINE = InnoDB;
+
+ALTER TABLE `user` CHANGE `PIN` `PIN` INT(11) NULL;
+
+INSERT INTO `privileges` (`ID`, `Name`, `En`, `PartID`, `ItemID`) VALUES (NULL, 'User_Manage', 'Manage users', '5', '5');
+
+ID
+UserID
+Price
+Status
+PageCount
+UserDuration
+AdminDuration
+Desc
+FinalPrice
+PackageID
+OT
+CT
+CorroborantID
+
+
+ID
+HdrID
+FeatureID
+
+ID
+InvoiceID
+FileName
+
+
+
+

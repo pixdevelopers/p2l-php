@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<!--
+       __________      ________      ___     
+      |          \    /   __   \    |   |   
+      |    _____  \  /___/  \   \   |   |   
+      |   |     \  \         )   )  |   |    
+      |   |     )  )        /    /  |   |    
+      |   |     )  )       /    /   |   |   
+      |   |____/  /       /    /    |   |  
+      |    ______/       /    /     |   | 
+      |   |             /    /      |   |
+      |   |            /    (____   |   |________/|   
+      |   |           /          |  |             |   
+      |___|          |___________|  |_____________|
+
+      Hi, Thanks for checking our source code! :)        
+  -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>P2L</title>
+    <meta name="description" content="We Bring Your Ideas to Life | PSD to Live">
+    <meta name="keywords" content="PSD to HTML, PSD2HTML, PSD to Website, PSD to Code, Design to Code, HTML 5, CSS 3, Wordpress, JavaScript, NodeJS, Web Application">
+    <link rel="canonical" href="https://www.psd2live.com" />
+    <link rel="alternate" href="https://www.psd2live.com" hreflang="en" />
+    <meta name="theme-color" content="#6acad8">
+    <base href="/">
+    <link rel="stylesheet" href="assets/styles/main.css">
+</head>
+
+<body ng-app="p2lApp" >
+
+    <header ng-hide="hideHeaderFooter">
+        <div navigation></div>
+    </header>
+    <div  ui-view></div>
+    <footer ng-hide="hideHeaderFooter">
+        <div footer></div>
+    </footer>
+    <script src="assets/scripts/jquery.min.js"></script>
+    <script src="assets/scripts/angular.min.js"></script>
+    <script src="assets/scripts/angular-ui-router.min.js"></script>
+    <script src="assets/scripts/ocLazyLoad.min.js"></script>
+    <script src="app.js"></script>
+    <script src="config/run.js"></script>
+    <script src="config/common-routes.js"></script>
+    <script src="config/user-routes.js"></script>
+    <script src="directives/directives.js"></script>
+</body>
+
+</html>

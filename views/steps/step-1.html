@@ -8,18 +8,18 @@
             <div class="step-1">
                 <h3>Please Choose an Option:</h3>
                 <label class="custom-control custom-radio">
-                    <input id="radio1" name="radio" type="radio" class="custom-control-input" />
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">I’d Like PSD2LIVE to Design My Website From Scratch</span>
-                </label>
-                <label class="custom-control custom-radio">
-                    <input id="radio2" name="radio" type="radio" class="custom-control-input" checked />
+                    <input ng-model="stepOneOption" value="designIsReady" name="radio" type="radio" class="custom-control-input" checked />
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">I Already Have My Designs Ready</span>
                 </label>
-                <div class="btn btn-cyan">Next</div>
-                <div class="request">
-                    <div class="form-content">
+                <label class="custom-control custom-radio">
+                    <input ng-model="stepOneOption" value="designFromScratch" name="radio" type="radio" class="custom-control-input" />
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">I’d Like PSD2LIVE to Design My Website From Scratch</span>
+                </label>
+
+                <div ng-if="stepOneOption=='designFromScratch'" class="request">
+                    <!-- <div class="form-content">
                         <form>
                             <div class="form-group name">
                                 <input class="col-12" type="text" placeholder="Name" />
@@ -37,8 +37,11 @@
                             </div>
                             <input class="col-12" type="submit" value="Request a quote" />
                         </form>
-                    </div>
+                    </div> -->
+                                        <p>The service is not available at the moment.</p>
+
                 </div>
+                <div ng-hide="!stepOneOption || stepOneOption=='designFromScratch'" class="btn btn-cyan" ng-click="toStepTwo();">Next</div>
             </div>
         </div>
     </div>

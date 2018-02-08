@@ -213,11 +213,8 @@ header {
 }
 
 .home-bg {
-    background-color: #a4babf;
     min-height: 1340px;
-    background-image: url(../images/bg.png);
-    background-repeat: no-repeat;
-    background-position: top;
+    background-: no-repeat;
     background-size: contain;
     position: absolute;
     top: 0;
@@ -234,11 +231,13 @@ header {
 
 .home {
     position: relative;
+        background:#a4babf url(../images/home-bg-min.jpg) no-repeat;
+
     h1 {
         font-size: 58px;
         color: #fff;
         text-align: center;
-        margin: 230px auto 40px;
+        padding: 230px 0 40px;
         text-transform: uppercase;
         text-shadow: rgba(0, 0, 0, 0.24) 0 2px 0;
         letter-spacing: -2px;
@@ -464,6 +463,9 @@ header {
                 text-decoration: none;
             }
         }
+    }
+    &.step-2{
+        background:none !important;
     }
 }
 
@@ -1071,6 +1073,7 @@ footer {
             display: block;
             text-align: center;
             margin: 10px auto 20px;
+            cursor:pointer;
             i {
                 margin-right: 5px;
             }

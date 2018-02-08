@@ -31,8 +31,8 @@
     <link rel="stylesheet" href="assets/styles/main.css">
 </head>
 
-<body ng-app="p2lApp" >
-
+<body  ng-app="p2lApp" ng-class="{'overflow-hidden':isLoading}">
+    <p2l-loading ng-hide="!isLoading"></p2l-loading>
     <header ng-hide="hideHeaderFooter">
         <div navigation></div>
     </header>

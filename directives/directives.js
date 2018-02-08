@@ -30,6 +30,12 @@
                 restrict: 'A',
                 templateUrl: 'views/directives/dashboard-sidebar.html'
             };
+        }])
+         .directive('p2lLoading', [function() {
+            return {
+                restrict: 'E',
+                templateUrl: 'views/directives/p2l-loading.html'
+            };
         }]);
 
 })();

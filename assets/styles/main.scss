@@ -8,6 +8,7 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900');
+@import 'spinner';
 $ubuntu: 'Ubuntu';
 $maven: 'Maven Pro';
 $source: 'Source Sans Pro';
@@ -27,6 +28,9 @@ body {
     color: $dgrey;
     background: #f5f5f5;
     font-family: $ubuntu, $source, $maven, 'sans-serif';
+    &.overflow-hidden{
+        overflow:hidden !important;
+    }
 }
 
 h1,
@@ -1636,3 +1640,4 @@ footer {
         }
     }
 }
+

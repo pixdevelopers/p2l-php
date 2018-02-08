@@ -48,28 +48,14 @@ ALTER TABLE `user` CHANGE `PIN` `PIN` INT(11) NULL;
 
 INSERT INTO `privileges` (`ID`, `Name`, `En`, `PartID`, `ItemID`) VALUES (NULL, 'User_Manage', 'Manage users', '5', '5');
 
-ID
-UserID
-Price
-Status
-PageCount
-UserDuration
-AdminDuration
-Desc
-FinalPrice
-PackageID
-OT
-CT
-CorroborantID
+CREATE TABLE `invoice_hdr` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `UserID` INT UNSIGNED NOT NULL , `PackageID` INT UNSIGNED NULL , `PageCount` TINYINT UNSIGNED NOT NULL , `UserDuration` SMALLINT UNSIGNED NULL , `Price` TEXT NOT NULL , `Desc` INT NOT NULL , `OT` INT(11) NOT NULL , `CorroborantID` INT UNSIGNED NULL , `CorroborantDuration` SMALLINT NOT NULL , `FinalPrice` TEXT NOT NULL , `CorroborantDesc` TEXT NOT NULL , `CT` INT(11) NULL , `Status` TINYINT NOT NULL , PRIMARY KEY (`ID`), INDEX `UserID` (`UserID`), INDEX `PackageID` (`PackageID`), INDEX `OT` (`OT`), INDEX `CorroborantID` (`CorroborantID`), INDEX `Status` (`Status`)) ENGINE = InnoDB;
 
+CREATE TABLE `invoice_dtl` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `HdrID` INT UNSIGNED NOT NULL , `FeatureID` INT UNSIGNED NOT NULL , PRIMARY KEY (`ID`), INDEX `HdrUD` (`HdrID`), INDEX `FeatureID` (`FeatureID`)) ENGINE = InnoDB;
 
-ID
-HdrID
-FeatureID
+CREATE TABLE `invoice_files` ( `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT , `InvoiceHdrID` INT UNSIGNED NOT NULL , `FileName` TEXT NOT NULL , `Type` TINYINT NOT NULL , `UserID` INT UNSIGNED NULL , `AdminID` INT UNSIGNED NULL , PRIMARY KEY (`ID`), INDEX `InvoiceHdrID` (`InvoiceHdrID`), INDEX `Type` (`Type`), INDEX `UserID` (`UserID`), INDEX `AdminID` (`AdminID`)) ENGINE = InnoDB;
 
-ID
-InvoiceID
-FileName
+ALTER TABLE `invoice_files` CHANGE `Type` `Type` TINYINT(4) NOT NULL COMMENT '1: User upload, 2: Admin upload';
+
 
 
 

@@ -1,0 +1,28 @@
+{
+  "name": "p2l-php",
+  "version": "1.0.0",
+  "description": "PSD2LIVE AngularJS & PHP",
+  "main": "app.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixsolutions/p2l-php.git"
+  },
+  "author": "Mamo YZ, KEYHAN , aahelali , MoM , Omid Amiri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pixsolutions/p2l-php/issues"
+  },
+  "homepage": "https://github.com/pixsolutions/p2l-php#readme"
+}

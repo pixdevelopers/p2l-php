@@ -24,6 +24,12 @@
                 restrict: 'A',
                 templateUrl: 'views/directives/auth-navigation.html'
             };
+        }])
+         .directive('dashboardSidebar', [function() {
+            return {
+                restrict: 'A',
+                templateUrl: 'views/directives/dashboard-sidebar.html'
+            };
         }]);
 
 })();

@@ -31,6 +31,12 @@
                 templateUrl: 'views/directives/dashboard-sidebar.html'
             };
         }])
+         .directive('adminSidebar', [function() {
+            return {
+                restrict: 'A',
+                templateUrl: 'views/directives/admin-sidebar.html'
+            };
+        }])
          .directive('p2lLoading', [function() {
             return {
                 restrict: 'E',

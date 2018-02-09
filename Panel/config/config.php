@@ -5,11 +5,11 @@
  * Time: 22:30
  */
 $HOST = 'localhost';
-$PORT = '3307';
+$PORT = '3306';
 $USER = 'root';
-$PASS = 'Aa111111';
+$PASS = '';
 $DB = 'p2l';
-$URL = 'http://192.168.195.128/P2L';
+$URL = 'http://localhost';
 $EMAIL_HOST = 'server.reghabat.com';
 $EMAIL_USERNAME = 'test@shv-mail.com';
 $EMAIL_PASSWORD = '123zxc';

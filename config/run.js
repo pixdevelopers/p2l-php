@@ -6,15 +6,15 @@
         $rootScope.$stateParams = $stateParams;
         $rootScope.$on('$viewContentLoaded', function(event) {
             $rootScope.isLoading = false;
-
+            $('.bootstrap-select').selectpicker();
+            
         });
         $rootScope.$on('$stateChangeStart', function(event) {
             $rootScope.isLoading = true;
         });
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $rootScope.isLoading = false;
-
-            var states = ['user-login', 'user-signup', 'user-forgot', 'user-reset', 'user-dashboard', 'user-projects', 'user-single-project', 'user-messages', 'user-payments', 'user-settings', 'user-profile'];
+            var states = ['home','how-it-works','our-team','about-us','contact-us','faq','terms-of-service','privacy-policy','projects','services'];
             $document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
             $rootScope.hideHeaderFooter = (states.indexOf(toState.name) > -1) ? true : false;
 

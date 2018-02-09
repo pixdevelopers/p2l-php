@@ -1,0 +1,64 @@
+<div class="page-container">
+    <!-- Page content -->
+    <div class="page-content">
+        <div admin-sidebar class="sidebar sidebar-main sidebar-default sidebar-fixed">
+        </div>
+        <!-- /main sidebar -->
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">Users</h4>
+                                <div class="heading-elements">
+                                        <a ui-sref="admin-users-add"  class="btn btn-xs btn-info heading-btn">Add New User</a>
+                                    </div>
+                            </div>
+                            <div class="panel-body">
+                                
+
+                        <div class="table-responsive">
+                            <table class="table table-xxs table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Username</th>
+                                        <th>Member of</th>
+                                        <th>Superadmin</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>            
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Admin</td>
+                                        <td>Admin</td>
+                                        <td>New Group</td>
+                                        <td>Yes</td>
+                                        <td>Active</td>
+                                        <td>
+                                            <a ui-sref="admin-users-edit({userId:1})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
+                                            <a href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
+
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /content area -->
+        </div>
+        <!-- /main content -->
+    </div>
+    <!-- /page content -->
+</div>

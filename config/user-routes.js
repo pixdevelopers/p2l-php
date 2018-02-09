@@ -48,7 +48,13 @@
                     templateUrl: 'views/user/dashboard.html',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('assets/styles/limitless.min.css','assets/scripts/limitless.min.js');
+                            return $ocLazyLoad.load([{
+                                name: 'ctrl',
+                                files: ['controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'assets/scripts/limitless.min.js']
+                            }]);
                         }]
                     }
                 })
@@ -57,7 +63,13 @@
                     templateUrl: 'views/user/projects.html',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('assets/styles/limitless.min.css','assets/scripts/limitless.min.js');
+                            return $ocLazyLoad.load([{
+                                name: 'ctrl',
+                                files: ['controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'assets/scripts/limitless.min.js']
+                            }]);
                         }]
                     }
                 })
@@ -66,7 +78,13 @@
                     templateUrl: 'views/user/messages.html',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('assets/styles/limitless.min.css','assets/scripts/limitless.min.js');
+                            return $ocLazyLoad.load([{
+                                name: 'ctrl',
+                                files: ['controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'assets/scripts/limitless.min.js']
+                            }]);
                         }]
                     }
                 })
@@ -75,7 +93,13 @@
                     templateUrl: 'views/user/payments.html',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('assets/styles/limitless.min.css','assets/scripts/limitless.min.js');
+                            return $ocLazyLoad.load([{
+                                name: 'ctrl',
+                                files: ['controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'assets/scripts/limitless.min.js']
+                            }]);
                         }]
                     }
                 })
@@ -84,7 +108,13 @@
                     templateUrl: 'views/user/profile.html',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('assets/styles/limitless.min.css','assets/scripts/limitless.min.js');
+                            return $ocLazyLoad.load([{
+                                name: 'ctrl',
+                                files: ['controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'assets/scripts/limitless.min.js']
+                            }]);
                         }]
                     }
                 })
@@ -93,7 +123,13 @@
                     templateUrl: 'views/user/settings.html',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('assets/styles/limitless.min.css','assets/scripts/limitless.min.js');
+                            return $ocLazyLoad.load([{
+                                name: 'ctrl',
+                                files: ['controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'assets/scripts/limitless.min.js']
+                            }]);
                         }]
                     }
                 })
@@ -102,7 +138,13 @@
                     templateUrl: 'views/user/single-project.html',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('assets/styles/limitless.min.css','assets/scripts/limitless.min.js');
+                            return $ocLazyLoad.load([{
+                                name: 'ctrl',
+                                files: ['controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'assets/scripts/limitless.min.js']
+                            }]);
                         }]
                     }
                 });

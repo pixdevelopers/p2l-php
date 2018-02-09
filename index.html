@@ -33,11 +33,11 @@
 
 <body  ng-app="p2lApp" ng-class="{'overflow-hidden':isLoading}">
     <p2l-loading ng-hide="!isLoading"></p2l-loading>
-    <header ng-hide="hideHeaderFooter">
+    <header ng-if="hideHeaderFooter">
         <div navigation></div>
     </header>
     <div  ui-view></div>
-    <footer ng-hide="hideHeaderFooter">
+    <footer ng-if="hideHeaderFooter">
         <div footer></div>
     </footer>
     <script src="assets/scripts/jquery.min.js"></script>
@@ -48,6 +48,7 @@
     <script src="config/run.js"></script>
     <script src="config/common-routes.js"></script>
     <script src="config/user-routes.js"></script>
+    <script src="config/admin-routes.js"></script>
     <script src="directives/directives.js"></script>
 </body>
 

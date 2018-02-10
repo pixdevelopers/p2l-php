@@ -260,6 +260,51 @@
                             }]);
                         }]
                     }
+                })
+                .state('admin-package-options', {
+                    url: '/admin/dashboard/packages-options',
+                    templateUrl: 'views/admin/package-options.html',
+                    resolve: {
+                        loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([{
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-js',
+                                files: ['assets/scripts/limitless.min.js']
+                            }]);
+                        }]
+                    }
+                })
+                .state('admin-package-options-add', {
+                    url: '/admin/dashboard/packages-options/add',
+                    templateUrl: 'views/admin/package-option-add.html',
+                    resolve: {
+                        loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([{
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-js',
+                                files: ['assets/scripts/limitless.min.js']
+                            }]);
+                        }]
+                    }
+                })
+                .state('admin-package-options-edit', {
+                    url: '/admin/dashboard/packages-options/edit',
+                    templateUrl: 'views/admin/package-option-edit.html',
+                    resolve: {
+                        loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load([{
+                                name: 'limitless-css',
+                                files: ['assets/styles/limitless.min.css', 'controllers/admin/adminAuthCtrl.js']
+                            }, {
+                                name: 'limitless-js',
+                                files: ['assets/scripts/limitless.min.js']
+                            }]);
+                        }]
+                    }
                 });
         });
 

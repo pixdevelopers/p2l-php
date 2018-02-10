@@ -12,13 +12,12 @@
                     <div class="col-sm-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h5 class="panel-title">Features Categories</h5>
+                                <h5 class="panel-title">Package Options</h4>
                                 <div class="heading-elements">
-                                        <a ui-sref="admin-feature-category-add"  class="btn btn-xs btn-info heading-btn">Add New Category</a>
+                                        <a ui-sref="admin-package-options-add"  class="btn btn-xs btn-info heading-btn">Add New Option</a>
                                     </div>
                             </div>
                             <div class="panel-body">
-
                                 
 
                         <div class="table-responsive">
@@ -26,7 +25,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
+                                        <th>Description</th>
                                         <th>Actions</th>            
 
                                     </tr>
@@ -34,9 +33,17 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Category Name</td>
+                                        <td>Cross Browsing Support</td>
                                         <td>
-                                            <a ui-sref="admin-feature-category-edit({userId:1})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
+                                            <a ui-sref="admin-package-options-edit({userId:1})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
+                                            <a href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mobile Responsive</td>
+                                        <td>
+                                            <a ui-sref="admin-package-options-edit({userId:1})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
                                             <a href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
 
                                     </tr>
@@ -44,7 +51,6 @@
                                 </tbody>
                             </table>
                         </div>
-                            
                             </div>
                         </div>
                     </div>

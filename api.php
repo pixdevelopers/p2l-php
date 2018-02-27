@@ -55,16 +55,18 @@ if(isset($Parameters['Request']) AND $Parameters['Request'] != ''){
         }
 
         $List = $Features->Select($ID,$Status,$ORDER_BY,$ORDER_TYPE,$LIMIT);
-        while($row = mysqli_fetch_assoc($List)){
-            $Result[$row['ID']]['ID'] = $row['ID'];
-            $Result[$row['ID']]['Name'] = $row['Name'];
-            $Result[$row['ID']]['Desc'] = $row['Desc'];
-            $Result[$row['ID']]['Price'] = $row['Price'];
-            $Result[$row['ID']]['CategoryID'] = $row['CategoryID'];
-            $Result[$row['ID']]['Status'] = $row['Status'];
-        }
+        if(mysqli_num_rows($List)>0) {
+            while ($row = mysqli_fetch_assoc($List)) {
+                $Result[$row['ID']]['ID'] = $row['ID'];
+                $Result[$row['ID']]['Name'] = $row['Name'];
+                $Result[$row['ID']]['Desc'] = $row['Desc'];
+                $Result[$row['ID']]['Price'] = $row['Price'];
+                $Result[$row['ID']]['CategoryID'] = $row['CategoryID'];
+                $Result[$row['ID']]['Status'] = $row['Status'];
+            }
 
-        $JsonArray = json_encode($Result);
+            $JsonArray = json_encode($Result);
+        }
 
     }
     elseif($Request == 'SelectFeaturesCategories'){
@@ -105,14 +107,16 @@ if(isset($Parameters['Request']) AND $Parameters['Request'] != ''){
         }
 
         $List = $Features->SelectCategory($ID,$Status,$ORDER_BY,$ORDER_TYPE,$LIMIT);
-        while($row = mysqli_fetch_assoc($List)){
-            $Result[$row['ID']]['ID'] = $row['ID'];
-            $Result[$row['ID']]['Name'] = $row['Name'];
-            $Result[$row['ID']]['Desc'] = $row['Desc'];
-            $Result[$row['ID']]['Status'] = $row['Status'];
-        }
+        if(mysqli_num_rows($List)>0) {
+            while ($row = mysqli_fetch_assoc($List)) {
+                $Result[$row['ID']]['ID'] = $row['ID'];
+                $Result[$row['ID']]['Name'] = $row['Name'];
+                $Result[$row['ID']]['Desc'] = $row['Desc'];
+                $Result[$row['ID']]['Status'] = $row['Status'];
+            }
 
-        $JsonArray = json_encode($Result);
+            $JsonArray = json_encode($Result);
+        }
 
     }
     elseif($Request == 'SelectInvoice'){
@@ -202,43 +206,45 @@ if(isset($Parameters['Request']) AND $Parameters['Request'] != ''){
         }
 
         $List = $Invoice->SelectInvoice('1','','',$ID,$UserID,$PackageID,$FROM_OT,$TO_OT,$CorroborantID,$FROM_CT,$TO_CT,$Status,'','',$ORDER_BY,$ORDER_TYPE,$LIMIT);
-        while($row = mysqli_fetch_assoc($List)){
-            $HdrID = $row['ID'];
+        if(mysqli_num_rows($List)>0) {
+            while ($row = mysqli_fetch_assoc($List)) {
+                $HdrID = $row['ID'];
 
-            $Result[$row['ID']]['Hdr']['ID'] = $row['ID'];
-            $Result[$row['ID']]['Hdr']['UserID'] = $row['UserID'];
-            $Result[$row['ID']]['Hdr']['PackageID'] = $row['PackageID'];
-            $Result[$row['ID']]['Hdr']['PageCount'] = $row['PageCount'];
-            $Result[$row['ID']]['Hdr']['UserDuration'] = $row['UserDuration'];
-            $Result[$row['ID']]['Hdr']['Price'] = $row['Price'];
-            $Result[$row['ID']]['Hdr']['Desc'] = $row['Desc'];
-            $Result[$row['ID']]['Hdr']['OT'] = $row['OT'];
-            $Result[$row['ID']]['Hdr']['CorroborantID'] = $row['CorroborantID'];
-            $Result[$row['ID']]['Hdr']['CorroborantDuration'] = $row['CorroborantDuration'];
-            $Result[$row['ID']]['Hdr']['FinalPrice'] = $row['FinalPrice'];
-            $Result[$row['ID']]['Hdr']['CorroborantDesc'] = $row['CorroborantDesc'];
-            $Result[$row['ID']]['Hdr']['CT'] = $row['CT'];
-            $Result[$row['ID']]['Hdr']['Status'] = $row['Status'];
+                $Result[$row['ID']]['Hdr']['ID'] = $row['ID'];
+                $Result[$row['ID']]['Hdr']['UserID'] = $row['UserID'];
+                $Result[$row['ID']]['Hdr']['PackageID'] = $row['PackageID'];
+                $Result[$row['ID']]['Hdr']['PageCount'] = $row['PageCount'];
+                $Result[$row['ID']]['Hdr']['UserDuration'] = $row['UserDuration'];
+                $Result[$row['ID']]['Hdr']['Price'] = $row['Price'];
+                $Result[$row['ID']]['Hdr']['Desc'] = $row['Desc'];
+                $Result[$row['ID']]['Hdr']['OT'] = $row['OT'];
+                $Result[$row['ID']]['Hdr']['CorroborantID'] = $row['CorroborantID'];
+                $Result[$row['ID']]['Hdr']['CorroborantDuration'] = $row['CorroborantDuration'];
+                $Result[$row['ID']]['Hdr']['FinalPrice'] = $row['FinalPrice'];
+                $Result[$row['ID']]['Hdr']['CorroborantDesc'] = $row['CorroborantDesc'];
+                $Result[$row['ID']]['Hdr']['CT'] = $row['CT'];
+                $Result[$row['ID']]['Hdr']['Status'] = $row['Status'];
 
-            $ListDtl = $Invoice->SelectInvoice('','1','','','','','','','','','','',$HdrID,'','','','');
-            while($row_Dtl = mysqli_fetch_assoc($ListDtl)){
-                $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['ID'] = $row_Dtl['ID'];
-                $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['HdrID'] = $row_Dtl['HdrID'];
-                $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['FeatureID'] = $row_Dtl['FeatureID'];
+                $ListDtl = $Invoice->SelectInvoice('', '1', '', '', '', '', '', '', '', '', '', '', $HdrID, '', '', '', '');
+                while ($row_Dtl = mysqli_fetch_assoc($ListDtl)) {
+                    $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['ID'] = $row_Dtl['ID'];
+                    $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['HdrID'] = $row_Dtl['HdrID'];
+                    $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['FeatureID'] = $row_Dtl['FeatureID'];
+                }
+
+                $ListFiles = $Invoice->SelectInvoice('', '', '1', '', '', '', '', '', '', '', '', '', $HdrID, '', '', '', '');
+                while ($row_Files = mysqli_fetch_assoc($ListFiles)) {
+                    $Result[$row['ID']]['Files'][$row_Files['ID']]['ID'] = $row_Files['ID'];
+                    $Result[$row['ID']]['Files'][$row_Files['ID']]['InvoiceHdrID'] = $row_Files['InvoiceHdrID'];
+                    $Result[$row['ID']]['Files'][$row_Files['ID']]['FileName'] = $row_Files['FileName'];
+                    $Result[$row['ID']]['Files'][$row_Files['ID']]['Type'] = $row_Files['Type'];
+                    $Result[$row['ID']]['Files'][$row_Files['ID']]['UserID'] = $row_Files['UserID'];
+                    $Result[$row['ID']]['Files'][$row_Files['ID']]['AdminID'] = $row_Files['AdminID'];
+                }
             }
 
-            $ListFiles = $Invoice->SelectInvoice('','','1','','','','','','','','','',$HdrID,'','','','');
-            while($row_Files = mysqli_fetch_assoc($ListFiles)){
-                $Result[$row['ID']]['Files'][$row_Files['ID']]['ID'] = $row_Files['ID'];
-                $Result[$row['ID']]['Files'][$row_Files['ID']]['InvoiceHdrID'] = $row_Files['InvoiceHdrID'];
-                $Result[$row['ID']]['Files'][$row_Files['ID']]['FileName'] = $row_Files['FileName'];
-                $Result[$row['ID']]['Files'][$row_Files['ID']]['Type'] = $row_Files['Type'];
-                $Result[$row['ID']]['Files'][$row_Files['ID']]['UserID'] = $row_Files['UserID'];
-                $Result[$row['ID']]['Files'][$row_Files['ID']]['AdminID'] = $row_Files['AdminID'];
-            }
+            $JsonArray = json_encode($Result);
         }
-
-        $JsonArray = json_encode($Result);
 
     }
     elseif($Request == 'SelectPackage'){
@@ -279,24 +285,26 @@ if(isset($Parameters['Request']) AND $Parameters['Request'] != ''){
         }
 
         $List = $Package->SelectPackage('1','',$ID,'',$Status,'',$ORDER_BY,$ORDER_TYPE,$LIMIT);
-        while($row = mysqli_fetch_assoc($List)){
-            $HdrID = $row['ID'];
+        if(mysqli_num_rows($List)>0) {
+            while ($row = mysqli_fetch_assoc($List)) {
+                $HdrID = $row['ID'];
 
-            $Result[$row['ID']]['Hdr']['ID'] = $row['ID'];
-            $Result[$row['ID']]['Hdr']['Name'] = $row['Name'];
-            $Result[$row['ID']]['Hdr']['Price'] = $row['Price'];
-            $Result[$row['ID']]['Hdr']['Status'] = $row['Status'];
+                $Result[$row['ID']]['Hdr']['ID'] = $row['ID'];
+                $Result[$row['ID']]['Hdr']['Name'] = $row['Name'];
+                $Result[$row['ID']]['Hdr']['Price'] = $row['Price'];
+                $Result[$row['ID']]['Hdr']['Status'] = $row['Status'];
 
-            $ListDtl = $Package->SelectPackage('','1','','','',$HdrID,'','','');
-            while($row_Dtl = mysqli_fetch_assoc($ListDtl)){
-                $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['ID'] = $row_Dtl['ID'];
-                $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['HdrID'] = $row_Dtl['HdrID'];
-                $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['FeatureID'] = $row_Dtl['FeatureID'];
+                $ListDtl = $Package->SelectPackage('', '1', '', '', '', $HdrID, '', '', '');
+                while ($row_Dtl = mysqli_fetch_assoc($ListDtl)) {
+                    $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['ID'] = $row_Dtl['ID'];
+                    $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['HdrID'] = $row_Dtl['HdrID'];
+                    $Result[$row['ID']]['Dtl'][$row_Dtl['ID']]['FeatureID'] = $row_Dtl['FeatureID'];
+                }
+
             }
 
+            $JsonArray = json_encode($Result);
         }
-
-        $JsonArray = json_encode($Result);
 
     }
     elseif($Request == 'SelectAdmin'){
@@ -351,19 +359,21 @@ if(isset($Parameters['Request']) AND $Parameters['Request'] != ''){
         }
 
         $List = $Users->SelectAdmin($ID,$Username,$GroupID,$Status,$ORDER_BY,$ORDER_TYPE,$LIMIT);
-        while($row = mysqli_fetch_assoc($List)){
-            $HdrID = $row['ID'];
+        if(mysqli_num_rows($List)>0) {
+            while ($row = mysqli_fetch_assoc($List)) {
+                $HdrID = $row['ID'];
 
-            $Result[$row['ID']]['ID'] = $row['ID'];
-            $Result[$row['ID']]['UserName'] = $row['UserName'];
-            $Result[$row['ID']]['Name'] = $row['Name'];
-            $Result[$row['ID']]['IsSuperadmin'] = $row['IsSuperadmin'];
-            $Result[$row['ID']]['GroupID'] = $row['GroupID'];
-            $Result[$row['ID']]['Status'] = $row['Status'];
+                $Result[$row['ID']]['ID'] = $row['ID'];
+                $Result[$row['ID']]['UserName'] = $row['UserName'];
+                $Result[$row['ID']]['Name'] = $row['Name'];
+                $Result[$row['ID']]['IsSuperadmin'] = $row['IsSuperadmin'];
+                $Result[$row['ID']]['GroupID'] = $row['GroupID'];
+                $Result[$row['ID']]['Status'] = $row['Status'];
 
+            }
+
+            $JsonArray = json_encode($Result);
         }
-
-        $JsonArray = json_encode($Result);
 
     }
     elseif($Request == 'SelectUser'){
@@ -439,20 +449,22 @@ if(isset($Parameters['Request']) AND $Parameters['Request'] != ''){
         }
 
         $List = $Users->SelectUser($ID,$Email,$Name,$Family,$Status,$RT_FROM,$RT_TO,$ORDER_BY,$ORDER_TYPE,$LIMIT);
-        while($row = mysqli_fetch_assoc($List)){
-            $HdrID = $row['ID'];
+        if(mysqli_num_rows($List)>0) {
+            while ($row = mysqli_fetch_assoc($List)) {
+                $HdrID = $row['ID'];
 
-            $Result[$row['ID']]['ID'] = $row['ID'];
-            $Result[$row['ID']]['Email'] = $row['Email'];
-            $Result[$row['ID']]['Name'] = $row['Name'];
-            $Result[$row['ID']]['Family'] = $row['Family'];
-            $Result[$row['ID']]['PIN'] = $row['PIN'];
-            $Result[$row['ID']]['Status'] = $row['Status'];
-            $Result[$row['ID']]['RT'] = $row['RT'];
+                $Result[$row['ID']]['ID'] = $row['ID'];
+                $Result[$row['ID']]['Email'] = $row['Email'];
+                $Result[$row['ID']]['Name'] = $row['Name'];
+                $Result[$row['ID']]['Family'] = $row['Family'];
+                $Result[$row['ID']]['PIN'] = $row['PIN'];
+                $Result[$row['ID']]['Status'] = $row['Status'];
+                $Result[$row['ID']]['RT'] = $row['RT'];
 
+            }
+
+            $JsonArray = json_encode($Result);
         }
-
-        $JsonArray = json_encode($Result);
 
     }
     elseif($Request == 'SelectUserGroups'){
@@ -493,20 +505,24 @@ if(isset($Parameters['Request']) AND $Parameters['Request'] != ''){
         }
 
         $List = $UserGroups->SelectUserGroups('1','',$ID,$Status,'',$ORDER_BY,$ORDER_TYPE,$LIMIT);
-        while($row = mysqli_fetch_assoc($List)){
-            $HdrID = $row['ID'];
+        if(mysqli_num_rows($List)>0) {
+            while ($row = mysqli_fetch_assoc($List)) {
+                $HdrID = $row['ID'];
 
-            $Result[$row['ID']]['ID'] = $row['ID'];
-            $Result[$row['ID']]['Name'] = $row['Name'];
-            $Result[$row['ID']]['Status'] = $row['Status'];
+                $Result[$row['ID']]['ID'] = $row['ID'];
+                $Result[$row['ID']]['Name'] = $row['Name'];
+                $Result[$row['ID']]['Status'] = $row['Status'];
 
+            }
+
+            $JsonArray = json_encode($Result);
         }
-
-        $JsonArray = json_encode($Result);
 
     }
 
-    print_r($JsonArray);
+    if(isset($JsonArray)) {
+        print_r($JsonArray);
+    }
 
 }
 ?>

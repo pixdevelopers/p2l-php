@@ -256,7 +256,7 @@ class Invoice {
                 if($Condition != '') {
                     $Condition = $Condition . ' AND ';
                 }
-                $Condition = $Condition . "(`HdrID`='$HdrID')";
+                $Condition = $Condition . "(`InvoiceHdrID`='$HdrID')";
             }
             if($Type != '') {
                 if($Condition != '') {

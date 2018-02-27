@@ -1,5 +1,10 @@
 <?php
 
+
+header("Content-Type: application/json; charset=UTF-8");
+$Parameters = json_decode(file_get_contents('php://input'), true);
+
+
 require_once ('Panel/class/Features/Features.class.php');
 require_once ('Panel/class/Invoice/Invoice.class.php');
 require_once ('Panel/class/Package/Package.class.php');
@@ -11,41 +16,41 @@ $Package = new Package();
 $UserGroups = new UserGroups();
 $Users = new Users();
 
-if(isset($_POST['Request']) AND $_POST['Request'] != ''){
-    $Request = $_POST['Request'];
+if(isset($Parameters['Request']) AND $Parameters['Request'] != ''){
+    $Request = $Parameters['Request'];
 
     if($Request == 'SelectFeatures'){
 
-        if(isset($_POST['ID'])){
-            $ID = $_POST['ID'];
+        if(isset($Parameters['ID'])){
+            $ID = $Parameters['ID'];
         }
         else{
             $ID = '';
         }
 
-        if(isset($_POST['Status'])){
-            $Status = $_POST['Status'];
+        if(isset($Parameters['Status'])){
+            $Status = $Parameters['Status'];
         }
         else{
             $Status = '';
         }
 
-        if(isset($_POST['ORDER_BY'])){
-            $ORDER_BY = $_POST['ORDER_BY'];
+        if(isset($Parameters['ORDER_BY'])){
+            $ORDER_BY = $Parameters['ORDER_BY'];
         }
         else{
             $ORDER_BY = '';
         }
 
-        if(isset($_POST['ORDER_TYPE'])){
-            $ORDER_TYPE = $_POST['ORDER_TYPE'];
+        if(isset($Parameters['ORDER_TYPE'])){
+            $ORDER_TYPE = $Parameters['ORDER_TYPE'];
         }
         else{
             $ORDER_TYPE = '';
         }
 
-        if(isset($_POST['LIMIT'])){
-            $LIMIT = $_POST['LIMIT'];
+        if(isset($Parameters['LIMIT'])){
+            $LIMIT = $Parameters['LIMIT'];
         }
         else{
             $LIMIT = '';
@@ -66,36 +71,36 @@ if(isset($_POST['Request']) AND $_POST['Request'] != ''){
     }
     elseif($Request == 'SelectFeaturesCategories'){
 
-        if(isset($_POST['ID'])){
-            $ID = $_POST['ID'];
+        if(isset($Parameters['ID'])){
+            $ID = $Parameters['ID'];
         }
         else{
             $ID = '';
         }
 
-        if(isset($_POST['Status'])){
-            $Status = $_POST['Status'];
+        if(isset($Parameters['Status'])){
+            $Status = $Parameters['Status'];
         }
         else{
             $Status = '';
         }
 
-        if(isset($_POST['ORDER_BY'])){
-            $ORDER_BY = $_POST['ORDER_BY'];
+        if(isset($Parameters['ORDER_BY'])){
+            $ORDER_BY = $Parameters['ORDER_BY'];
         }
         else{
             $ORDER_BY = '';
         }
 
-        if(isset($_POST['ORDER_TYPE'])){
-            $ORDER_TYPE = $_POST['ORDER_TYPE'];
+        if(isset($Parameters['ORDER_TYPE'])){
+            $ORDER_TYPE = $Parameters['ORDER_TYPE'];
         }
         else{
             $ORDER_TYPE = '';
         }
 
-        if(isset($_POST['LIMIT'])){
-            $LIMIT = $_POST['LIMIT'];
+        if(isset($Parameters['LIMIT'])){
+            $LIMIT = $Parameters['LIMIT'];
         }
         else{
             $LIMIT = '';
@@ -114,85 +119,85 @@ if(isset($_POST['Request']) AND $_POST['Request'] != ''){
     }
     elseif($Request == 'SelectInvoice'){
 
-        if(isset($_POST['ID'])){
-            $ID = $_POST['ID'];
+        if(isset($Parameters['ID'])){
+            $ID = $Parameters['ID'];
         }
         else{
             $ID = '';
         }
 
-        if(isset($_POST['UserID'])){
-            $UserID = $_POST['UserID'];
+        if(isset($Parameters['UserID'])){
+            $UserID = $Parameters['UserID'];
         }
         else{
             $UserID = '';
         }
 
-        if(isset($_POST['PackageID'])){
-            $PackageID = $_POST['PackageID'];
+        if(isset($Parameters['PackageID'])){
+            $PackageID = $Parameters['PackageID'];
         }
         else{
             $PackageID = '';
         }
 
-        if(isset($_POST['FROM_OT'])){
-            $FROM_OT = $_POST['FROM_OT'];
+        if(isset($Parameters['FROM_OT'])){
+            $FROM_OT = $Parameters['FROM_OT'];
         }
         else{
             $FROM_OT = '';
         }
 
-        if(isset($_POST['TO_OT'])){
-            $TO_OT = $_POST['TO_OT'];
+        if(isset($Parameters['TO_OT'])){
+            $TO_OT = $Parameters['TO_OT'];
         }
         else{
             $TO_OT = '';
         }
 
-        if(isset($_POST['CorroborantID'])){
-            $CorroborantIDD = $_POST['CorroborantID'];
+        if(isset($Parameters['CorroborantID'])){
+            $CorroborantIDD = $Parameters['CorroborantID'];
         }
         else{
             $CorroborantID = '';
         }
 
-        if(isset($_POST['FROM_CT'])){
-            $FROM_CT = $_POST['FROM_CT'];
+        if(isset($Parameters['FROM_CT'])){
+            $FROM_CT = $Parameters['FROM_CT'];
         }
         else{
             $FROM_CT = '';
         }
 
-        if(isset($_POST['TO_CT'])){
-            $TO_CT = $_POST['TO_CT'];
+        if(isset($Parameters['TO_CT'])){
+            $TO_CT = $Parameters['TO_CT'];
         }
         else{
             $TO_CT = '';
         }
 
-        if(isset($_POST['Status'])){
-            $Status = $_POST['Status'];
+        if(isset($Parameters['Status'])){
+            $Status = $Parameters['Status'];
         }
         else{
             $Status = '';
         }
 
-        if(isset($_POST['ORDER_BY'])){
-            $ORDER_BY = $_POST['ORDER_BY'];
+        if(isset($Parameters['ORDER_BY'])){
+            $ORDER_BY = $Parameters['ORDER_BY'];
         }
         else{
             $ORDER_BY = '';
         }
 
-        if(isset($_POST['ORDER_TYPE'])){
-            $ORDER_TYPE = $_POST['ORDER_TYPE'];
+        if(isset($Parameters['ORDER_TYPE'])){
+            $ORDER_TYPE = $Parameters['ORDER_TYPE'];
         }
         else{
             $ORDER_TYPE = '';
         }
 
-        if(isset($_POST['LIMIT'])){
-            $LIMIT = $_POST['LIMIT'];
+        if(isset($Parameters['LIMIT'])){
+            $LIMIT = $Parameters['LIMIT'];
         }
         else{
             $LIMIT = '';
@@ -240,36 +245,36 @@ if(isset($_POST['Request']) AND $_POST['Request'] != ''){
     }
     elseif($Request == 'SelectPackage'){
 
-        if(isset($_POST['ID'])){
-            $ID = $_POST['ID'];
+        if(isset($Parameters['ID'])){
+            $ID = $Parameters['ID'];
         }
         else{
             $ID = '';
         }
 
-        if(isset($_POST['Status'])){
-            $Status = $_POST['Status'];
+        if(isset($Parameters['Status'])){
+            $Status = $Parameters['Status'];
         }
         else{
             $Status = '';
         }
 
-        if(isset($_POST['ORDER_BY'])){
-            $ORDER_BY = $_POST['ORDER_BY'];
+        if(isset($Parameters['ORDER_BY'])){
+            $ORDER_BY = $Parameters['ORDER_BY'];
         }
         else{
             $ORDER_BY = '';
         }
 
-        if(isset($_POST['ORDER_TYPE'])){
-            $ORDER_TYPE = $_POST['ORDER_TYPE'];
+        if(isset($Parameters['ORDER_TYPE'])){
+            $ORDER_TYPE = $Parameters['ORDER_TYPE'];
         }
         else{
             $ORDER_TYPE = '';
         }
 
-        if(isset($_POST['LIMIT'])){
-            $LIMIT = $_POST['LIMIT'];
+        if(isset($Parameters['LIMIT'])){
+            $LIMIT = $Parameters['LIMIT'];
         }
         else{
             $LIMIT = '';
@@ -298,50 +303,50 @@ if(isset($_POST['Request']) AND $_POST['Request'] != ''){
     }
     elseif($Request == 'SelectAdmin'){
 
-        if(isset($_POST['ID'])){
-            $ID = $_POST['ID'];
+        if(isset($Parameters['ID'])){
+            $ID = $Parameters['ID'];
         }
         else{
             $ID = '';
         }
 
-        if(isset($_POST['Username'])){
-            $Username = $_POST['Username'];
+        if(isset($Parameters['Username'])){
+            $Username = $Parameters['Username'];
         }
         else{
             $Username = '';
         }
 
-        if(isset($_POST['GroupID'])){
-            $GroupID = $_POST['GroupID'];
+        if(isset($Parameters['GroupID'])){
+            $GroupID = $Parameters['GroupID'];
         }
         else{
             $GroupID = '';
         }
 
-        if(isset($_POST['Status'])){
-            $Status = $_POST['Status'];
+        if(isset($Parameters['Status'])){
+            $Status = $Parameters['Status'];
         }
         else{
             $Status = '';
         }
 
-        if(isset($_POST['ORDER_BY'])){
-            $ORDER_BY = $_POST['ORDER_BY'];
+        if(isset($Parameters['ORDER_BY'])){
+            $ORDER_BY = $Parameters['ORDER_BY'];
         }
         else{
             $ORDER_BY = '';
         }
 
-        if(isset($_POST['ORDER_TYPE'])){
-            $ORDER_TYPE = $_POST['ORDER_TYPE'];
+        if(isset($Parameters['ORDER_TYPE'])){
+            $ORDER_TYPE = $Parameters['ORDER_TYPE'];
         }
         else{
             $ORDER_TYPE = '';
         }
 
-        if(isset($_POST['LIMIT'])){
-            $LIMIT = $_POST['LIMIT'];
+        if(isset($Parameters['LIMIT'])){
+            $LIMIT = $Parameters['LIMIT'];
         }
         else{
             $LIMIT = '';
@@ -365,71 +370,71 @@ if(isset($_POST['Request']) AND $_POST['Request'] != ''){
     }
     elseif($Request == 'SelectUser'){
 
-        if(isset($_POST['ID'])){
-            $ID = $_POST['ID'];
+        if(isset($Parameters['ID'])){
+            $ID = $Parameters['ID'];
         }
         else{
             $ID = '';
         }
 
-        if(isset($_POST['Email'])){
-            $Email = $_POST['Email'];
+        if(isset($Parameters['Email'])){
+            $Email = $Parameters['Email'];
         }
         else{
             $Email = '';
         }
 
-        if(isset($_POST['Name'])){
-            $Name = $_POST['Name'];
+        if(isset($Parameters['Name'])){
+            $Name = $Parameters['Name'];
         }
         else{
             $Name = '';
         }
 
-        if(isset($_POST['Family'])){
-            $Family = $_POST['Family'];
+        if(isset($Parameters['Family'])){
+            $Family = $Parameters['Family'];
         }
         else{
             $Family = '';
         }
 
-        if(isset($_POST['RT_FROM'])){
-            $RT_FROM = $_POST['RT_FROM'];
+        if(isset($Parameters['RT_FROM'])){
+            $RT_FROM = $Parameters['RT_FROM'];
         }
         else{
             $RT_FROM = '';
         }
 
-        if(isset($_POST['RT_TO'])){
-            $RT_TO = $_POST['RT_TO'];
+        if(isset($Parameters['RT_TO'])){
+            $RT_TO = $Parameters['RT_TO'];
         }
         else{
             $RT_TO = '';
         }
 
-        if(isset($_POST['Status'])){
-            $Status = $_POST['Status'];
+        if(isset($Parameters['Status'])){
+            $Status = $Parameters['Status'];
         }
         else{
             $Status = '';
         }
 
-        if(isset($_POST['ORDER_BY'])){
-            $ORDER_BY = $_POST['ORDER_BY'];
+        if(isset($Parameters['ORDER_BY'])){
+            $ORDER_BY = $Parameters['ORDER_BY'];
         }
         else{
             $ORDER_BY = '';
         }
 
-        if(isset($_POST['ORDER_TYPE'])){
-            $ORDER_TYPE = $_POST['ORDER_TYPE'];
+        if(isset($Parameters['ORDER_TYPE'])){
+            $ORDER_TYPE = $Parameters['ORDER_TYPE'];
         }
         else{
             $ORDER_TYPE = '';
         }
 
-        if(isset($_POST['LIMIT'])){
-            $LIMIT = $_POST['LIMIT'];
+        if(isset($Parameters['LIMIT'])){
+            $LIMIT = $Parameters['LIMIT'];
         }
         else{
             $LIMIT = '';
@@ -454,36 +459,36 @@ if(isset($_POST['Request']) AND $_POST['Request'] != ''){
     }
     elseif($Request == 'SelectUserGroups'){
 
-        if(isset($_POST['ID'])){
-            $ID = $_POST['ID'];
+        if(isset($Parameters['ID'])){
+            $ID = $Parameters['ID'];
         }
         else{
             $ID = '';
         }
 
-        if(isset($_POST['Status'])){
-            $Status = $_POST['Status'];
+        if(isset($Parameters['Status'])){
+            $Status = $Parameters['Status'];
         }
         else{
             $Status = '';
         }
 
-        if(isset($_POST['ORDER_BY'])){
-            $ORDER_BY = $_POST['ORDER_BY'];
+        if(isset($Parameters['ORDER_BY'])){
+            $ORDER_BY = $Parameters['ORDER_BY'];
         }
         else{
             $ORDER_BY = '';
         }
 
-        if(isset($_POST['ORDER_TYPE'])){
-            $ORDER_TYPE = $_POST['ORDER_TYPE'];
+        if(isset($Parameters['ORDER_TYPE'])){
+            $ORDER_TYPE = $Parameters['ORDER_TYPE'];
         }
         else{
             $ORDER_TYPE = '';
         }
 
-        if(isset($_POST['LIMIT'])){
-            $LIMIT = $_POST['LIMIT'];
+        if(isset($Parameters['LIMIT'])){
+            $LIMIT = $Parameters['LIMIT'];
         }
         else{
             $LIMIT = '';

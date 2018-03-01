@@ -16,8 +16,8 @@ $Package = new Package();
 $UserGroups = new UserGroups();
 $Users = new Users();
 
-if(isset($Parameters['Request']) AND $Parameters['Request'] != ''){
-    $Request = $Parameters['Request'];
+if(isset($Parameters['request']) AND $Parameters['request'] != ''){
+    $Request = $Parameters['request'];
 
     if($Request == 'SelectFeatures'){
 

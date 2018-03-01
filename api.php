@@ -521,6 +521,121 @@ if(isset($Parameters['request']) AND $Parameters['request'] != ''){
         }
 
     }
+    elseif($Request == 'AddFeature'){
+
+        $JsonArray = $Features->Add($Parameters['Name'],$Parameters['Desc'],$Parameters['Price'],$Parameters['CategoryID']);
+
+    }
+    elseif($Request == 'EditFeature'){
+
+        $JsonArray = $Features->Edit($Parameters['ID'],$Parameters['Name'],$Parameters['Desc'],$Parameters['Price'],$Parameters['CategoryID'],$Parameters['Status']);
+
+    }
+    elseif($Request == 'DeleteFeature'){
+
+        $JsonArray = $Features->Delete($Parameters['ID']);
+
+    }
+    elseif($Request == 'AddFeatureCategory'){
+
+        $JsonArray = $Features->AddCategory($Parameters['Name'],$Parameters['Desc']);
+
+    }
+    elseif($Request == 'EditFeatureCategory'){
+
+        $JsonArray = $Features->EditCategory($Parameters['ID'],$Parameters['Name'],$Parameters['Desc'],$Parameters['Status']);
+
+    }
+    elseif($Request == 'DeleteFeatureCategory'){
+
+        $JsonArray = $Features->DeleteCategory($Parameters['ID']);
+
+    }
+    elseif($Request == 'AddInvoice'){
+
+        $JsonArray = $Invoice->AddInvoice($Parameters['UserID'],$Parameters['PackageID'],$Parameters['PageCount'],$Parameters['UserDuration'],$Parameters['Price'],$Parameters['Desc'],$Parameters['Features'],$Parameters['Files']);
+
+    }
+    elseif($Request == 'CorroborantInvoice'){
+
+        $JsonArray = $Invoice->CorroborantInvoice($Parameters['ID'],$Parameters['CorroborantID'],$Parameters['CorroborantDuration'],$Parameters['FinalPrice'],$Parameters['CorroborantDesc']);
+
+    }
+    elseif($Request == 'AddPackage'){
+
+        $JsonArray = $Package->AddPackage($Parameters['Name'],$Parameters['Price'],'0',$Parameters['Features']);
+
+    }
+    elseif($Request == 'EditPackage'){
+
+        $JsonArray = $Package->EditPackage($Parameters['ID'],$Parameters['Name'],$Parameters['Price'],'0',$Parameters['Status'],$Parameters['Features']);
+
+    }
+    elseif($Request == 'DeletePackage'){
+
+        $JsonArray = $Package->DeletePackage($Parameters['ID']);
+
+    }
+    elseif($Request == 'AddUserGroup'){
+
+        $JsonArray = $UserGroups->AddUserGroup($Parameters['Name'],$Parameters['Privilege']);
+
+    }
+    elseif($Request == 'EditUserGroup'){
+
+        $JsonArray = $UserGroups->EditUserGroup($Parameters['ID'],$Parameters['Name'],$Parameters['Status'],$Parameters['Privilege']);
+
+    }
+    elseif($Request == 'DeleteUserGroup'){
+
+        $JsonArray = $UserGroups->DeleteUserGroup($Parameters['ID']);
+
+    }
+    elseif($Request == 'AddAdmin'){
+
+        $JsonArray = $Users->AddAdmin($Parameters['Username'],$Parameters['Password'],$Parameters['Name'],$Parameters['IsSuperadmin'],$Parameters['GroupID']);
+
+    }
+    elseif($Request == 'EditAdmin'){
+
+        $JsonArray = $Users->EditAdmin($Parameters['ID'],$Parameters['Username'],$Parameters['Name'],$Parameters['IsSuperadmin'],$Parameters['GroupID'],$Parameters['Status']);
+
+    }
+    elseif($Request == 'DeleteAdmin'){
+
+        $JsonArray = $Users->DeleteAdmin($Parameters['ID']);
+
+    }
+    elseif($Request == 'AddUser'){
+
+        $JsonArray = $Users->AddUser($Parameters['Email'],$Parameters['Password'],$Parameters['Name'],$Parameters['Family']);
+
+    }
+    elseif($Request == 'VerifyUserEmail'){
+
+        $JsonArray = $Users->VerifyEmail($Parameters['Email'],$Parameters['PIN']);
+
+    }
+    elseif($Request == 'EditUser'){
+
+        $JsonArray = $Users->EditUser($Parameters['ID'],$Parameters['Email'],$Parameters['Name'],$Parameters['Family'],$Parameters['Status']);
+
+    }
+    elseif($Request == 'DeleteUser'){
+
+        $JsonArray = $Users->DeleteUser($Parameters['ID']);
+
+    }
+    elseif($Request == 'RequestPIN'){
+
+        $JsonArray = $Users->RequestPIN($Parameters['Email'],$Parameters['PIN'],'1');
+
+    }
+    elseif($Request == 'RequestVerificationEmail'){
+
+        $JsonArray = $Users->RequestVerificationEmail($Parameters['Email']);
+
+    }
 
     if(isset($JsonArray)) {
         print_r($JsonArray);

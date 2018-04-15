@@ -19,36 +19,37 @@
                                     <div class="form-group">
                                         <label class="control-label col-lg-2">Group Name</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" placeholder="Group Name">
+                                            <input ng-model="userGroupName" type="text" class="form-control" placeholder="Group Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-lg-2">Group Rights</label>
                                         <div class="col-lg-10">
                                             <div class="checkbox">
+                                                {{userGroupRole}}
                                                 <label class="checkbox">
-                                                    <input type="checkbox" checked="checked">
+                                                    <input ng-model="userGroupRole.manageUserGroups"  type="checkbox" checked="checked">
                                                     Manage UserGroups
                                                 </label>
                                             </div>
                                                 <div class="checkbox">
                                                     <label class="checkbox">
-                                                        <input type="checkbox" checked="checked">
+                                                        <input ng-model="userGroupRole.manageAdmins" type="checkbox" checked="checked">
                                                         Manage Admins
                                                     </label></div>
                                                     <div class="checkbox">
                                                         <label class="checkbox">
-                                                            <input type="checkbox" checked="checked">
+                                                            <input ng-model="userGroupRole.manageFeatures" type="checkbox" checked="checked">
                                                             Manage Features
                                                         </label></div>
                                                         <div class="checkbox">
                                                             <label class="checkbox">
-                                                                <input type="checkbox" checked="checked">
+                                                                <input ng-model="userGroupRole.managePackages" type="checkbox" checked="checked">
                                                                 Manage Packages
                                                             </label></div>
                                                             <div class="checkbox">
                                                                 <label class="checkbox">
-                                                                    <input type="checkbox" checked="checked">
+                                                                    <input ng-model="userGroupRole.manageUsers" type="checkbox" checked="checked">
                                                                     Manage Users
                                                                 </label></div>
                                                             </div>
@@ -57,7 +58,7 @@
                                                         <div class="form-group">
                                                             <div class="col-lg-2"></div>
                                                             <div class="col-lg-10">
-                                                                <button type="button" class="btn btn-info  legitRipple"><i class=" icon-plus22 position-left"></i> Add User Group</button>
+                                                                <button ng-click="createUserGroup()" type="button" class="btn btn-info  legitRipple"><i class=" icon-plus22 position-left"></i> Add User Group</button>
                                                             </div>
                                                         </div>
                                                     </div>

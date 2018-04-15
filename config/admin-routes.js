@@ -60,6 +60,7 @@
                 .state('admin-user-groups-add', {
                     url: '/admin/dashboard/user-groups/add',
                     templateUrl: 'views/admin/user-groups-add.html',
+                    controller: 'adminUserGroupsCtrl',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load([{

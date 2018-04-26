@@ -63,7 +63,12 @@
                     controller: 'adminUserGroupsCtrl',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load([{
+                            return $ocLazyLoad.load([
+                            {
+                                name: 'ctrl',
+                                files: ['controllers/admin/adminUserGroupsCtrl.js']
+                            },
+                            {
                                 name: 'limitless-css',
                                 files: ['assets/styles/limitless.min.css', 'controllers/admin/adminAuthCtrl.js']
                             }, {
@@ -78,7 +83,12 @@
                     templateUrl: 'views/admin/user-groups-edit.html',
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load([{
+                            return $ocLazyLoad.load([
+                            {
+                                name: 'ctrl',
+                                files: ['controllers/admin/adminUserGroupsCtrl.js']
+                            },
+                            {
                                 name: 'limitless-css',
                                 files: ['assets/styles/limitless.min.css', 'controllers/admin/adminAuthCtrl.js']
                             }, {

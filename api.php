@@ -1,1 +1,0 @@
-<?php /* Rest api file */ ?>

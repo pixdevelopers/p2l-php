@@ -36,7 +36,8 @@ gulp.task('scripts', function() {
             'assets/limitless/js/plugins/tables/datatables/datatables.min.js',
             'assets/limitless/js/pages/datatables_basic.js',
             'assets/limitless/js/pages/mail_list.js',
-            'assets/limitless/js/plugins/forms/selects/bootstrap_select.min.js'
+            'assets/limitless/js/plugins/forms/selects/bootstrap_select.min.js',
+            'assets/scripts/iziToast.min.js'
         ])
         .pipe(concat('limitless.min.js'))
         .pipe(uglify())

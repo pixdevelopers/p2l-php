@@ -34,15 +34,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Admin</td>
-                                        <td>psikopat.mamo@gmail.com</td>
-                                        <td>New Group</td>
-                                        <td>Active</td>
+                                    <tr ng-repeat="user in users | orderBy:'-id'">
+                                        <td>{{user.id}}</td>
+                                        <td>{{user.name}}</td>
+                                        <td>{{user.email}}</td>
+                                        <td>{{getNamebyId(user.userGroupID)}}</td>
+                                        <td><span ng-if=" user.status > 0 ">Active</span><span ng-if="!user.status || user.status == 0">Inactive</span></td>
                                         <td>
-                                            <a ui-sref="admin-users-edit({userId:1})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
-                                            <a href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
+                                            <a ui-sref="admin-users-edit({userId:user.id})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
+                                            <a ng-click="deleteUser(user.id);" href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
 
                                     </tr>
                                    

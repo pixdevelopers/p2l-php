@@ -30,12 +30,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="col-xs-1">1</td>
-                                        <td class="col-xs-7">Eugene</td>
+                                    <tr ng-repeat="item in userGroups | orderBy:'-id'">
+                                        <td class="col-xs-1">{{item.id}}</td>
+                                        <td class="col-xs-7">{{item.name}}</td>
                                           <td class="col-xs-2">
-                                            <a ui-sref="admin-user-groups-edit({groupId:1})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
-                                            <a href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
+                                            <a ui-sref="admin-user-groups-edit({groupId:{{item.id}}})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
+                                            <a ng-click="deleteUserGroup(item.id);" href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
                                     </tr>
                                    
                                 </tbody>

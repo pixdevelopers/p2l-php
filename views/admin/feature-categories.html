@@ -27,17 +27,19 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
+                                        <th>Description</th>
                                         <th>Actions</th>            
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Category Name</td>
+                                    <tr ng-repeat="cat in categoriesList | orderBy:'-id'">
+                                        <td>{{cat.id}}</td>
+                                        <td>{{cat.name}}</td>
+                                        <td>{{cat.description}}</td>
                                         <td>
-                                            <a ui-sref="admin-feature-category-edit({userId:1})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
-                                            <a href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
+                                            <a ui-sref="admin-feature-category-edit({catId:cat.id})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
+                                            <a ng-click="deleteCat(cat.id)" href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
 
                                     </tr>
                                    

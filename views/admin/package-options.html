@@ -31,22 +31,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Cross Browsing Support</td>
+                                    <tr ng-repeat="option in optionsList">
+                                        <td>{{option.id}}</td>
+                                        <td>{{option.description}}</td>
                                         <td>
-                                            <a ui-sref="admin-package-options-edit({userId:1})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
-                                            <a href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
+                                            <a ui-sref="admin-package-options-edit({optionId:option.id})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
+                                            <a ng-click="deleteOption(option.id)" href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
 
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mobile Responsive</td>
-                                        <td>
-                                            <a ui-sref="admin-package-options-edit({userId:1})" class="mr-2" href="" data-popup="tooltip" title="Edit" data-placement="left"><i class="icon-pencil"></i></a>
-                                            <a href="" data-popup="tooltip" title="Delete" data-placement="left"><i class="icon-trash-alt"></i></a></td>
-
-                                    </tr>
+                                   
                                    
                                 </tbody>
                             </table>

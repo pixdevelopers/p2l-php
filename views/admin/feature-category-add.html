@@ -22,20 +22,20 @@
                                     <div class="form-group">
                                         <label class="control-label col-lg-2">Category Name</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" placeholder="CategoryName">
+                                            <input ng-model="name" type="text" class="form-control" placeholder="Category Name">
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="control-label col-lg-2">Description</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" placeholder="Description">
+                                            <input ng-model="description" type="text" class="form-control" placeholder="Description">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">
                                         <div class="col-lg-2"></div>
                                         <div class="col-lg-10">
-                                            <button type="button" class="btn btn-info  legitRipple"><i class=" icon-plus22 position-left"></i> Add Category</button>
+                                            <button ng-click="createCategory();" type="button" class="btn btn-info  legitRipple"><i class=" icon-plus22 position-left"></i> Add Category</button>
                                         </div>
                                     </div>
                                 </div>

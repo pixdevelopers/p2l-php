@@ -12,42 +12,45 @@
                     <div class="col-sm-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h5 class="panel-title">Edit User Group</h4>
+                                <h5 class="panel-title">Edit <strong>"{{userGroupName}}"</strong></h5>
                             </div>
                             <div class="panel-body">
                                 <div class="form-horizontal">
                                     <div class="form-group">
                                         <label class="control-label col-lg-2">Group Name</label>
+
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" placeholder="Group Name">
+                                            <input ng-model="userGroupName" type="text" class="form-control" placeholder="Group Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-lg-2">Group Rights</label>
                                         <div class="col-lg-10">
-                                            <div class="checkbox">
+                                             <div class="checkbox">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" checked="checked">
+                                                    <input  ng-model="userGroupRole.manageUserGroups"   type="checkbox"  >
                                                     Manage UserGroups
-                                                </label></div>
+                                                </label>
+                                            </div>
                                                 <div class="checkbox">
                                                     <label class="checkbox">
-                                                        <input type="checkbox" checked="checked">
+                                                        <input  ng-model="userGroupRole.manageAdmins" type="checkbox"  >
                                                         Manage Admins
                                                     </label></div>
                                                     <div class="checkbox">
                                                         <label class="checkbox">
-                                                            <input type="checkbox" checked="checked">
+                                                            <input  ng-model="userGroupRole.manageFeatures" type="checkbox"  >
                                                             Manage Features
                                                         </label></div>
                                                         <div class="checkbox">
                                                             <label class="checkbox">
-                                                                <input type="checkbox" checked="checked">
+
+                                                                <input ng-model="userGroupRole.managePackages"  type="checkbox"  >
                                                                 Manage Packages
                                                             </label></div>
                                                             <div class="checkbox">
                                                                 <label class="checkbox">
-                                                                    <input type="checkbox" checked="checked">
+                                                                    <input  ng-model="userGroupRole.manageUsers" type="checkbox"  >
                                                                     Manage Users
                                                                 </label></div>
                                                             </div>
@@ -56,8 +59,8 @@
                                                         <div class="form-group">
                                                             <div class="col-lg-2"></div>
                                                             <div class="col-lg-10">
-                                                                                      <button type="button" class="btn btn-info  legitRipple"><i class=" icon-floppy-disk position-left"></i> Save & Update</button>
-                                              <button type="button" class="btn btn-danger  legitRipple"><i class=" icon-trash position-left"></i> Delete</button>
+                                                           <button ng-click="updateUserGroup();" type="button" class="btn btn-info  legitRipple"><i class=" icon-floppy-disk position-left"></i> Save & Update</button>
+                                              <button ng-click="deleteUserGroup(userGroupId);" type="button" class="btn btn-danger  legitRipple"><i class=" icon-trash position-left"></i> Delete</button>
                                                             </div>
                                                         </div>
                                                     </div>
